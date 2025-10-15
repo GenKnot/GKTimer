@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="theme-toggle">
+            <button id="themeToggle" class="theme-btn">🌙</button>
+        </div>
+        <div class="timer-container">
+            <div class="timer-header">
+                <div class="status-dot" id="statusDot"></div>
+                <h1>Work Timer</h1>
+            </div>
+            
+            <div class="timer-display">
+                <div class="time" id="timeDisplay">00:00:00</div>
+                <div class="session-status" id="sessionStatus">Ready</div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn-primary" id="startBtn">Start</button>
+                <button class="btn-secondary" id="stopBtn" disabled>Stop</button>
+            </div>
+        </div>
+        
+        <div class="today-work-container">
+            <div class="today-work-header" id="todayWorkHeader">
+                <div class="today-info">
+                    <div class="date" id="todayDate"></div>
+                </div>
+                <div class="total-work-time">
+                    <span class="total-time" id="totalWorkTime">0h 0m</span>
+                </div>
+            </div>
+            
+            <div class="work-details" id="workDetails" style="display: none;">
+                <div class="sessions-list" id="sessionsList"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

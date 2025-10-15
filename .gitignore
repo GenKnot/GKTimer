@@ -1,0 +1,17 @@
+/target
+/src-tauri/target
+work_sessions.json
+*.log
+.DS_Store
+/.vscode/
+/.idea/
+node_modules/
+
+Cargo.lock
+src-tauri/Cargo.lock
+
+src-tauri/.gitignore
+src-tauri/capabilities/
+src-tauri/icons/
+
+icons/*_rgba.png
