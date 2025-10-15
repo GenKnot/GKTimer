@@ -41,7 +41,7 @@ impl WorkSessionStore {
     }
 }
 
-pub async fn init_database() -> Result<WorkSessionStore, Box<dyn std::error::Error>> {
+pub fn init_database() -> Result<WorkSessionStore, Box<dyn std::error::Error>> {
     Ok(WorkSessionStore::load()?)
 }
 

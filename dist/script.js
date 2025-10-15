@@ -313,7 +313,6 @@ class Timer {
         this.elements.sessionsList.innerHTML = sessions.map(session => {
             const startTime = new Date(session.start_time);
             const endTime = session.end_time ? new Date(session.end_time) : null;
-            const duration = session.duration_minutes || 0;
             
             const startTimeStr = startTime.toLocaleTimeString('en-US', { 
                 hour: '2-digit', 
@@ -329,7 +328,23 @@ class Timer {
                 hour12: false 
             }) : 'Running...';
             
-            const durationStr = duration > 0 ? `${Math.floor(duration / 60)}h ${duration % 60}m` : '0m';
+            let durationStr;
+            if (endTime) {
+                const durationSeconds = Math.floor((endTime - startTime) / 1000);
+                const hours = Math.floor(durationSeconds / 3600);
+                const minutes = Math.floor((durationSeconds % 3600) / 60);
+                const seconds = durationSeconds % 60;
+                
+                if (hours > 0) {
+                    durationStr = minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+                } else if (minutes > 0) {
+                    durationStr = `${minutes}m`;
+                } else {
+                    durationStr = `${seconds}s`;
+                }
+            } else {
+                durationStr = 'Running...';
+            }
             
             return `
                 <div class="session-item">
